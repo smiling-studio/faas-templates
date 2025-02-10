@@ -64,11 +64,11 @@ do
     dirname=${dir%*/}
     template=${dirname##*/}
     
-    # skip arm templates
+    # skip arm templates and dockerfile template
     case "$template" in
-    *-arm* ) continue ;;
+    *-arm* | dockerfile ) continue ;;
     esac 
-
+    
     pushd ../ 2>/dev/null 1>&2
 
     build_template $template
