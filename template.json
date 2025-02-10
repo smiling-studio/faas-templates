@@ -1,0 +1,11 @@
+{
+    "templates": [
+      {
+        "title": "Node.js OpenFaaS Template",
+        "description": "Node.js template for OpenFaaS functions",
+        "name": "node20",
+        "platform": "openfaas",
+        "source": "https://raw.githubusercontent.com/smiling-studio/faas-templates/main/template/node20"
+      }
+    ]
+  }
