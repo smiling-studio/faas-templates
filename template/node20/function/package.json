@@ -4,9 +4,12 @@
   "description": "OpenFaaS Function",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "jest"
   },
   "keywords": [],
   "author": "OpenFaaS Ltd",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }

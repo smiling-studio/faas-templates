@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no tests specified\" && exit 0"
+    "test": "echo \"Error: no tests specified\" && exit 0",
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "OpenFaaS Ltd",
@@ -12,5 +13,8 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
