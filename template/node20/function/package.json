@@ -1,15 +1,15 @@
 {
-  "name": "openfaas-function",
-  "version": "1.0.0",
-  "description": "OpenFaaS Function",
-  "main": "handler.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "keywords": [],
-  "author": "OpenFaaS Ltd",
-  "license": "MIT",
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
+    "name": "openfaas-function",
+    "version": "1.0.0",
+    "description": "OpenFaaS Function",
+    "main": "handler.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "OpenFaaS Ltd",
+    "license": "MIT",
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
 }

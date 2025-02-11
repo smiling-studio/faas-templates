@@ -1,20 +1,23 @@
 {
-  "name": "openfaas-node20",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no tests specified\" && exit 0",
-    "start": "nodemon index.js"
-  },
-  "keywords": [],
-  "author": "OpenFaaS Ltd",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
-  }
+    "name": "openfaas-node20",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "bin": {
+        "faas-dev": "nodemon ./index.js"
+    },
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "keywords": [],
+    "author": "OpenFaaS Ltd",
+    "license": "MIT",
+    "dependencies": {
+        "@types/node": "^22.13.1",
+        "body-parser": "^1.18.2",
+        "express": "^4.16.2"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.9"
+    }
 }

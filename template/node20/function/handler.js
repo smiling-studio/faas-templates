@@ -1,10 +1,10 @@
 module.exports = async (event, context) => {
-  const result = {
-    'body': JSON.stringify(event.body),
-    'content-type': event.headers["content-type"]
-  }
+    const result = {
+        'body': JSON.stringify(event.body),
+        'content-type': event.headers["content-type"]
+    }
 
-  return context
-    .status(200)
-    .succeed(result)
+    return context
+        .status(200)
+        .succeed(result)
 }
