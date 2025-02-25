@@ -20,6 +20,7 @@ verify_and_clean()
     
     echo Verifying $template    
     container=$(docker run -d -p 8080:8080 $func_name:$tag_name)
+    echo $container
     sleep 5 # wait for slower templates to start
     output=$(curl -s -d "testing" http://127.0.0.1:8080)
     
