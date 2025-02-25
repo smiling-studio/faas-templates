@@ -4,12 +4,17 @@
 
 "use strict"
 
+require('dotenv/config');
 const express = require('express')
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const handler = require(fs.existsSync(path.join(__dirname, 'handler.js')) ? path.join(__dirname, 'handler.js') : require('./function/handler'));
+const handler = require(fs.existsSync(path.join(process.cwd(), 'handler.js')) ? path.join(process.cwd(), 'handler.js') : require('./function/handler'));
 const bodyParser = require('body-parser')
+const debug = require('debug');
+
+const log = debug('node20:info');
+
 
 const defaultMaxSize = '100kb' // body-parser default
 
@@ -97,7 +102,18 @@ class FunctionContext {
     }
 }
 
+// 添加资源文件扩展名检查函数
+const isResourceRequest = (path) => {
+    const resourceExtensions = ['.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.svg', '.woff', '.woff2', '.ttf', '.eot'];
+    return resourceExtensions.some(ext => path.toLowerCase().endsWith(ext));
+};
+
 const middleware = async (req, res) => {
+    // 如果是资源请求，直接返回404
+    if (isResourceRequest(req.path)) {
+        return res.status(404).send('Not found');
+    }
+
     const cb = (err, functionResult) => {
         if (err) {
             console.error(err);
@@ -139,8 +155,20 @@ app.options('/*', middleware);
 
 const port = process.env.http_port || 3000;
 
-app.listen(port, () => {
-    console.log(`node20 listening on port: ${port}`)
-});
 
+
+const startServer = () => {
+    const server = app.listen(port, () => {
+        log(`node20 监听端口: ${port}`);
+
+        process.on('SIGTERM', () => {
+            log('收到 SIGTERM 信号，准备关闭...');
+            process.exit(0);
+        });
+    });
+
+    return server;
+};
+
+startServer();
 
