@@ -9,8 +9,15 @@ const express = require('express')
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const handler = require(fs.existsSync(path.join(process.cwd(), 'handler.js')) ? path.join(process.cwd(), 'handler.js') : require('./function/handler'));
 const bodyParser = require('body-parser')
+
+// 先确定路径（返回字符串），再统一 require
+const handlerPath = fs.existsSync(path.join(process.cwd(), 'handler.js'))
+  ? path.join(process.cwd(), 'handler.js')
+  : './function/handler';
+
+const handler = require(handlerPath);
+
 const debug = require('debug');
 
 const log = debug('node20:info');
